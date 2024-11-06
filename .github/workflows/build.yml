@@ -26,3 +26,9 @@ jobs:
           restore-keys: ${{ runner.os }}-m2
       - name: Build
         run: mvn -B verify
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: coreprotect.jar
+          path: /home/runner/work/CoreProtect/CoreProtect/target/coreprotect.jar
+          if-no-files-found: error
